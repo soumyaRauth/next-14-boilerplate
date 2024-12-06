@@ -1,5 +1,5 @@
-const LoadingPaged = () => {
+const LoadingPagedd = () => {
   return <>Loading....</>;
 };
 
-export default LoadingPaged;
+export default LoadingPagedd;
