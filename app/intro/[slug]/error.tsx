@@ -1,7 +1,8 @@
 "use client"; // Error boundaries must be Client Components
 
+import Image from "next/image";
 import { useEffect } from "react";
-
+import wronghole from "@/public/images/wrong_hole.webp";
 export default function Error({
   error,
   reset,
@@ -16,7 +17,8 @@ export default function Error({
 
   return (
     <div>
-      <h2>Something went wrong!</h2>
+      <h2>Wrong Hole!</h2>
+      <Image placeholder="blur" src={wronghole} alt={"wrong-hole"}></Image>
       <button
         onClick={
           // Attempt to recover by trying to re-render the segment

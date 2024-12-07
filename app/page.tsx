@@ -1,5 +1,10 @@
-import Image from "next/image";
+import { Ruda } from "next/font/google";
 
+const ruda = Ruda({
+  subsets: ["latin-ext"],
+  weight: ["900"],
+  style: ["normal"],
+});
 export default function Home() {
-  return <div>NEXTJS</div>;
+  return <div className={ruda.className}>NEXTJS</div>;
 }

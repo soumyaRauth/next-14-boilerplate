@@ -1,6 +1,7 @@
+import Image from "next/image";
+
 const IntroPage = () => {
-  throw new Error("BIG DICK Error")
-  return <>HOMEEE</>;
+  return <>Introduction page</>;
 };
 
 export default IntroPage;
