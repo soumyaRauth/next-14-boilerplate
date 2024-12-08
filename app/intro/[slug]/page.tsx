@@ -11,7 +11,7 @@ const DetailIntro = async <T extends { slug: string }>({
 }) => {
   // If params is async, we should await it (not necessary in most cases but can be done)
   const slug = (await params).slug;
-
+  // throw new Error("Hellooooo");
   if (slug === "3") {
     return <NotFound />;
   }
