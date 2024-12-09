@@ -1,8 +1,12 @@
 import NotFound from "@/app/not-found";
+import { Poppins } from "next/font/google";
 
 export type Params = {
   slug: string;
 };
+
+//-Font initialization
+const poppins = Poppins({ subsets: ["latin"], weight: ["500"] });
 
 const DetailIntro = async <T extends { slug: string }>({
   params,
@@ -16,7 +20,7 @@ const DetailIntro = async <T extends { slug: string }>({
     return <NotFound />;
   }
 
-  return <div>{`Page slug is: ${slug}`}</div>;
+  return <div className={poppins.className}>{`Page slug is: ${slug}`}</div>;
 };
 
 export default DetailIntro;
