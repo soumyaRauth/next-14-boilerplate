@@ -1,4 +1,4 @@
-import Comments from "@/app/component/comments";
+import Comments from "@/app/component/Comments";
 import PostDetailComponent from "@/app/component/PostDetail";
 import { fetchCommentsById, fetchPostsById } from "@/app/utils/api";
 import { Oooh_Baby } from "next/font/google";
@@ -6,6 +6,17 @@ import { Suspense } from "react";
 
 type DetailPageParams = {
   params: Promise<{ id: string }>;
+};
+
+//-Dynamic metadata
+export const generateMetadata = async ({ params }: DetailPageParams) => {
+  const { id } = await params;
+  const post = await fetchPostsById(id);
+
+  return {
+    title: post.title,
+    description: post.body,
+  };
 };
 
 //-font Loading

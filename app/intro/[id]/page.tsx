@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import Comments from "@/app/component/comments";
+import Comments from "@/app/component/Comments";
 import { fetchCommentsById, fetchPostsById } from "@/app/utils/api";
 import { PostCommentsProps, PostDetailProp } from "@/app/utils/types";
 
