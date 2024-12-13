@@ -1,4 +1,6 @@
-const fetchPosts = async <T>(url: string): Promise<T> => {
+import { PostCommentsProps, PostDetailProp } from "./types";
+
+export const fetchPosts = async <T>(): Promise<T> => {
   const response = await fetch(
     "https://jsonplaceholder.typicode.com/posts?_limit=5"
   );
@@ -11,15 +13,21 @@ const fetchPosts = async <T>(url: string): Promise<T> => {
  * @param id
  * @returns
  */
-const fetchPostsById = async <T>(id: number): Promise<T> => {
+export const fetchPostsById = async (
+  id: number | string
+): Promise<PostDetailProp> => {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${id}`
   );
+
   const data = await response.json();
   return data;
 };
 
-const fetchCommentsById = async <T>(id: number): Promise<T> => {
+// fetchCommentsById - Returns parsed data, not Response object
+export const fetchCommentsById = async (
+  id: number | string
+): Promise<PostCommentsProps[]> => {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${id}/comments`
   );

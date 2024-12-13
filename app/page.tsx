@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import { Ruda } from "next/font/google";
+import { fetchPosts } from "./utils/api";
+import Link from "next/link";
 
 const ruda = Ruda({
   subsets: ["latin-ext"],
@@ -7,11 +9,26 @@ const ruda = Ruda({
   style: ["normal"],
 });
 
+type PostProps = {
+  id: number;
+  title: string;
+  body: string;
+};
+
 export const metadata: Metadata = {
   title: "INTO THE PAGE",
   description: "Metadata description",
 };
-export default function Home() {
-  // throw new Error("Error occued fasfsaf");
-  return <div className={ruda.className}>NEXTJS</div>;
-}
+
+const HomePage = async () => {
+  const posts: PostProps[] = await fetchPosts();
+  return (
+    <div className={ruda.className}>
+      {posts.map((post: PostProps) => (
+        <Link href={`/intro/${post.id}`}>{post.title}</Link>
+      ))}
+    </div>
+  );
+};
+
+export default HomePage;
